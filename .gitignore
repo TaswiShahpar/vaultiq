@@ -1,0 +1,33 @@
+# Virtual environment
+venv/
+
+# API keys — never push
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# FAISS vectorstore — too large for GitHub
+vectorstore/*
+!vectorstore/.gitkeep
+
+# Uploaded PDFs — user data, privacy
+uploads/*
+!uploads/.gitkeep
+
+# Session registry — personal data
+session_registry.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
