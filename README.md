@@ -1,3 +1,12 @@
+---
+title: Vaultiq
+emoji: 🔐
+colorFrom: red
+colorTo: orange
+sdk: docker
+pinned: true
+app_port: 8501
+---
 # 🔐 Vaultiq — RAG-Powered Document Intelligence
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?style=flat&logo=python)
