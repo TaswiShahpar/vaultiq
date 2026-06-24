@@ -21,4 +21,9 @@ RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTr
 COPY start.sh .
 RUN chmod +x start.sh
 
+EXPOSE 7860
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:7860/_stcore/health || exit 1
+
 CMD ["./start.sh"]
