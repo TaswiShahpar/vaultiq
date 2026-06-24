@@ -6,9 +6,14 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from models import QueryRequest, QueryResponse, UploadResponse, HealthResponse
-from rag_pipeline import ingest_pdf, query_document
-from utils import validate_pdf, generate_session_id, get_upload_path
+try:
+    from models import QueryRequest, QueryResponse, UploadResponse, HealthResponse
+    from rag_pipeline import ingest_pdf, query_document
+    from utils import validate_pdf, generate_session_id, get_upload_path
+except ImportError:
+    from backend.models import QueryRequest, QueryResponse, UploadResponse, HealthResponse
+    from backend.rag_pipeline import ingest_pdf, query_document
+    from backend.utils import validate_pdf, generate_session_id, get_upload_path
 
 # ── Lifespan (startup/shutdown) ───────────────────────────────────
 @asynccontextmanager

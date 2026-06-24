@@ -10,7 +10,10 @@ from langchain_groq import ChatGroq
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 
-from utils import get_vectorstore_path, cleanup_session_files
+try:
+    from utils import get_vectorstore_path, cleanup_session_files
+except ImportError:
+    from backend.utils import get_vectorstore_path, cleanup_session_files
 
 # ── Load environment variables ────────────────────────────────────
 load_dotenv()
