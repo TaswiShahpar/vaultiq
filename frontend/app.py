@@ -3,7 +3,8 @@ import requests
 import time
 
 # ── Config ────────────────────────────────────────────────────────
-BACKEND_URL = "http://127.0.0.1:8000"
+import os
+BACKEND_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
 # Force session persistence
 if "session_id" not in st.session_state:
     st.session_state.session_id = None
