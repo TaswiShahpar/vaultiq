@@ -56,7 +56,10 @@ async def health_check():
 @app.get("/sessions")
 async def get_sessions():
     """Return all saved sessions."""
-    from utils import load_session_registry
+    try:
+        from utils import load_session_registry
+    except ImportError:
+        from backend.utils import load_session_registry
     registry = load_session_registry()
     return {"sessions": registry}
 
